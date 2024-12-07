@@ -3,7 +3,7 @@ import random
 import pygame
 
 from code.Entity import Entity
-from code.const import ENTITY_SPEED, WIN_HEIGHT, ENTITY_DAMAGE
+from code.const import ENTITY_SPEED, ENTITY_DAMAGE
 
 
 class Enemy(Entity):
@@ -12,7 +12,7 @@ class Enemy(Entity):
         super().__init__(name, position)
         self.damage = ENTITY_DAMAGE[self.name]
         if self.name == 'shiv':
-            self.speed = random.randint(3, 6)
+            self.speed = random.randint(3, 5)
         else:
             self.speed = ENTITY_SPEED[self.name]
 

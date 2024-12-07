@@ -1,5 +1,3 @@
-from wsgiref.validate import validator
-
 import pygame
 
 from code.Enemy import Enemy

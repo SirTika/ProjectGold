@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 import pygame.image
 
-from code.const import ENTITY_SCALE, ENTITY_HEALTH, ENTITY_DAMAGE
+from code.const import ENTITY_HEALTH, ENTITY_DAMAGE
 
 
 class Entity(ABC):

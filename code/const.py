@@ -26,7 +26,7 @@ ENTITY_SCALE = 8
 # entity speed
 ENTITY_SPEED = {
     'player_idle': 7,
-    'shiv': lambda: random.randint(5, 9),
+    'shiv': lambda: random.randint(3, 5),
     'cannonball': 3,
     'coin': 4,
     'coin_bag': 8

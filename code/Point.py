@@ -1,7 +1,7 @@
 import random
 import pygame
 from code.Entity import Entity
-from code.const import WIN_HEIGHT, ENTITY_SPEED
+from code.const import ENTITY_SPEED
 
 
 class Point(Entity):
