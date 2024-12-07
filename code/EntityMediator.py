@@ -28,7 +28,7 @@ class EntityMediator:
         if valid_interaction:
             if ent1.rect.colliderect(ent2.rect):
                 if isinstance(ent2, Point):
-                    ent1.score += 1
+                    ent1.score += ent2.score_value
 
                 ent1.health -= ent2.damage
                 ent2.health -= ent1.damage

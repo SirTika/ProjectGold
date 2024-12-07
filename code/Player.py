@@ -10,6 +10,7 @@ class Player(Entity):
         self.original_surf = self.surf
         self.flipped_surf = pygame.transform.flip(self.surf, True, False)
         self.score = 0
+        self.is_game_over = False
 
     def move(self):
         pressed_key = pygame.key.get_pressed()

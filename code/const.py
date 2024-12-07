@@ -18,7 +18,6 @@ GREEN_4 = 0, 22, 23
 
 # text menu
 MENU_OPTION = ('Start Game',
-               'Score',
                'Exit Game')
 
 # entity scale
