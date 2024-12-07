@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 import pygame.image
 
-from code.const import ENTITY_SCALE, ENTITY_HEALTH
+from code.const import ENTITY_SCALE, ENTITY_HEALTH, ENTITY_DAMAGE
 
 
 class Entity(ABC):
@@ -16,7 +16,9 @@ class Entity(ABC):
         self.surf = pygame.transform.scale(self.surf, self.size)
         self.rect = self.surf.get_rect(left=position[0], top=position[1])
         self.speed = 0
-        self.health = ENTITY_HEALTH
+        self.health = ENTITY_HEALTH[self.name]
+        self.damage = ENTITY_DAMAGE[self.name]
+        self.last_damage = None
 
     @abstractmethod
     def move(self):

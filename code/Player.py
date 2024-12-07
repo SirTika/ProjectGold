@@ -9,6 +9,7 @@ class Player(Entity):
         super().__init__(name, position)
         self.original_surf = self.surf
         self.flipped_surf = pygame.transform.flip(self.surf, True, False)
+        self.score = 0
 
     def move(self):
         pressed_key = pygame.key.get_pressed()

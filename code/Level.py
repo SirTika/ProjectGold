@@ -3,13 +3,13 @@ import pygame.image
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
-from code.const import WIN_WIDTH, WIN_HEIGHT, EVENT_ENEMY, EVENT_POINT
+from code.Player import Player
+from code.const import WIN_WIDTH, WIN_HEIGHT, EVENT_ENEMY, EVENT_POINT, GREEN_4
 
 
 class Level:
 
     def __init__(self, window, name):
-        self.timeout = 20000
         self.window = window
         self.name = name
         self.bg_surf = pygame.image.load('./asset/background.png')
@@ -24,7 +24,7 @@ class Level:
 
         # Definindo o tempo de intervalo para o spawn dos inimigos
         pygame.time.set_timer(EVENT_ENEMY, 1300)
-        pygame.time.set_timer(EVENT_POINT, 1200)
+        pygame.time.set_timer(EVENT_POINT, 1300)
 
     def run(self):
         # Música de fundo
@@ -48,6 +48,13 @@ class Level:
             for entity in self.entity_list:
                 self.window.blit(entity.surf, entity.rect)
 
+            for entity in self.entity_list:
+                if isinstance(entity, Player):
+                    font = pygame.font.Font(None, 36)
+                    score_text = font.render(f"Score: {entity.score}", True, (255, 255, 255))
+                    self.window.blit(score_text, (10, 10))  # Posição do texto (10, 10)
+                    break  # Não há necessidade de continuar procurando após encontrar o Player
+
             pygame.display.flip()
 
             EntityMediator.verify_collision(entity_list=self.entity_list)
@@ -68,7 +75,7 @@ class Level:
                         self.entity_list.append(EntityFactory.get_entity('Cannonball'))
 
                 if event.type == EVENT_POINT:
-                    if random.random() < 0.80:
+                    if random.random() < 0.90:
                         self.entity_list.append(EntityFactory.get_entity('Coin'))
                     else:
                         self.entity_list.append(EntityFactory.get_entity('Coin_Bag'))
