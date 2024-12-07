@@ -33,6 +33,9 @@ ENTITY_SPEED = {
     'coin_bag': 10
 }
 
+# entity HEALTH
+ENTITY_HEALTH = 1
+
 EVENT_ENEMY = pygame.USEREVENT + 1
 EVENT_POINT = pygame.USEREVENT + 1
 

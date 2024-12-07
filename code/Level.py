@@ -41,9 +41,6 @@ class Level:
             for entity in self.entity_list:
                 entity.move()
 
-            # Remover entidades que saem da tela
-            #self.entity_list = [entity for entity in self.entity_list if entity.rect.bottom <= WIN_HEIGHT]
-
             # Desenhar o fundo
             self.window.blit(self.bg_surf, self.bg_rect)
 
@@ -54,6 +51,7 @@ class Level:
             pygame.display.flip()
 
             EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
 
             # Gerenciar eventos
             for event in pygame.event.get():
