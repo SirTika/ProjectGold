@@ -26,6 +26,8 @@ class Level:
         pygame.time.set_timer(EVENT_ENEMY, 1300)
         pygame.time.set_timer(EVENT_POINT, 1300)
 
+
+
     def run(self):
         # Música de fundo
         pygame.mixer_music.load('./asset/music.ogg')
@@ -48,12 +50,11 @@ class Level:
             for entity in self.entity_list:
                 self.window.blit(entity.surf, entity.rect)
 
-            for entity in self.entity_list:
-                if isinstance(entity, Player):
-                    font = pygame.font.Font(None, 36)
-                    score_text = font.render(f"Score: {entity.score}", True, (255, 255, 255))
-                    self.window.blit(score_text, (10, 10))  # Posição do texto (10, 10)
-                    break  # Não há necessidade de continuar procurando após encontrar o Player
+            #for entity in self.entity_list:
+            #    if isinstance(entity, Player):
+            #        font = pygame.font.Font(None, 36)
+            #        score_text = font.render(f"Score: {entity.score}", True, (255, 255, 255))
+            #        self.window.blit(score_text, (10, 10))  # Posição do texto (10, 10)
 
             pygame.display.flip()
 

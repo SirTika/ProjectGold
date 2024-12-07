@@ -1,10 +1,12 @@
 from wsgiref.validate import validator
 
+import pygame
+
 from code.Enemy import Enemy
 from code.Entity import Entity
 from code.Player import Player
 from code.Point import Point
-from code.const import WIN_HEIGHT
+from code.const import WIN_HEIGHT, EVENT_ENEMY, EVENT_POINT
 
 
 class EntityMediator:
@@ -46,4 +48,10 @@ class EntityMediator:
     def verify_health(entity_list: list[Entity]):
         for ent in entity_list:
             if ent.health <= 0:
+                if isinstance(ent, Player):
+                    ent.health = 0
+                    for entity in entity_list:
+                        entity.speed = 0
+                        pygame.time.set_timer(EVENT_ENEMY, 999999)
+                        pygame.time.set_timer(EVENT_POINT, 999999)
                 entity_list.remove(ent)
