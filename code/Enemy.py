@@ -15,5 +15,3 @@ class Enemy(Entity):
 
     def move(self):
         self.rect.centery += self.speed
-        if self.rect.top >= WIN_HEIGHT:
-            self.rect.top = -self.rect.height

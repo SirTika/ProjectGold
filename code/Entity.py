@@ -20,6 +20,3 @@ class Entity(ABC):
     @abstractmethod
     def move(self):
         pass
-
-    def kill(self):
-        pass

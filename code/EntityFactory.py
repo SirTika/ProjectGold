@@ -4,7 +4,7 @@ from code.Enemy import Enemy
 from code.Entity import Entity
 from code.Player import Player
 from code.Point import Point
-from code.const import WIN_WIDTH, WIN_HEIGHT
+from code.const import WIN_WIDTH, WIN_HEIGHT, ENTITY_SPAWN
 
 
 class EntityFactory:
@@ -14,12 +14,12 @@ class EntityFactory:
             case 'Player':
                 return Player('player_idle', ((WIN_WIDTH / 2) - 64, 545))
             case 'Shiv':
-                return Enemy('shiv', (random.randint(0, 866), WIN_HEIGHT + 30))
+                return Enemy('shiv', (random.randint(0, 866),ENTITY_SPAWN))
             case 'Cannonball':
-                return Enemy('cannonball', (random.randint(0, 786), WIN_HEIGHT + 30))
+                return Enemy('cannonball', (random.randint(0, 786),ENTITY_SPAWN))
             case 'Coin':
-                return Point('coin', (random.randint(0, 866), WIN_HEIGHT + 30))
+                return Point('coin', (random.randint(0, 866),ENTITY_SPAWN))
             case 'Coin_Bag':
-                return Point('coin_bag', (random.randint(0, 786), WIN_HEIGHT + 30))
+                return Point('coin_bag', (random.randint(0, 786),ENTITY_SPAWN))
             case _:
                 return None

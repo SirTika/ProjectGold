@@ -2,6 +2,7 @@ import random
 import pygame.image
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
 from code.const import WIN_WIDTH, WIN_HEIGHT, EVENT_ENEMY, EVENT_POINT
 
 
@@ -41,7 +42,7 @@ class Level:
                 entity.move()
 
             # Remover entidades que saem da tela
-            self.entity_list = [entity for entity in self.entity_list if entity.rect.bottom <= WIN_HEIGHT]
+            #self.entity_list = [entity for entity in self.entity_list if entity.rect.bottom <= WIN_HEIGHT]
 
             # Desenhar o fundo
             self.window.blit(self.bg_surf, self.bg_rect)
@@ -51,6 +52,8 @@ class Level:
                 self.window.blit(entity.surf, entity.rect)
 
             pygame.display.flip()
+
+            EntityMediator.verify_collision(entity_list=self.entity_list)
 
             # Gerenciar eventos
             for event in pygame.event.get():
