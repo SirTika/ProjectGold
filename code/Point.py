@@ -1,14 +1,13 @@
 import random
-
+import pygame
 from code.Entity import Entity
-from code.const import ENTITY_SPEED, WIN_HEIGHT
+from code.const import WIN_HEIGHT, ENTITY_SPEED
 
 
-class Enemy(Entity):
-
+class Point(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
-        if self.name == 'shiv':
+        if self.name == 'coin':
             self.speed = random.randint(5, 9)
         else:
             self.speed = ENTITY_SPEED[self.name]
